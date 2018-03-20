@@ -6,7 +6,7 @@ public class Tarkpea {
         Pakkuja.setArgs(args);
         Scanner scan = new Scanner(System.in);
         while (true) {
-            System.out.print("Sisesta küsimuse osa: ");
+            System.out.print("Sisesta küsimuse osa (väljumiseks \"q\"): ");
             if (Pakkuja.paku(scan, scan.nextLine())) {
                 break;
             }

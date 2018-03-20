@@ -60,8 +60,7 @@ public class Pakkuja {
                 if (vasted.size() > 1) {
                     System.out.print("Järgmise vaste kuvamiseks \"j\", " +
                             "eelmise vaste kuvamiseks \"e\", " +
-                            "uue küsimuse otsimiseks \"u\", " +
-                            "väljumiseks \"q\": ");
+                            "uue küsimuse otsimiseks \"u\": ");
                 }
                 else {
                     System.out.print("Väljumiseks \"q\": ");
