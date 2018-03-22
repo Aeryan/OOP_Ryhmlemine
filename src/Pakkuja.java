@@ -48,7 +48,7 @@ public class Pakkuja {
         // Kui leidus sobivaid küsimusi, väljastatakse sobinute arv, üks sobiv küsimus ja edasised võimalused
         else {
             System.out.println("Leidus " + vasted.size() + " vastet.");
-            int counter = 0;
+            int counter = (int) Math.round(Math.random() * (vasted.size()-1));
             while (true) {
 
                 if (vasted.size() > 1) {
