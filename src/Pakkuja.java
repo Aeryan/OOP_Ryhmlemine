@@ -1,44 +1,51 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// Klass sobivate küsimuste otsimiseks ja kasutajaga suhtlemiseks
 public class Pakkuja {
-    private static ArrayList<Küsimus> vasted;
+    // Muutujad võimalike saadavate argumentide, sobivate küsimuste ja terve küsimuste komplekti tarbeks
     private static String[] args;
+    private static ArrayList<Küsimus> vasted;
     private static ArrayList<Küsimus> eksam = new ArrayList<>();
 
+    // Meetod argumentide seadistamiseks
     public static void setArgs(String[] args) throws Exception{
         Pakkuja.args = args;
 
+        // Kui argumente käivitamisel ei antud, loob Pakkuja objekti Lugeja, mis loeb näitefaili sisu
         if (Pakkuja.args.length == 0) {
             Lugeja logistik = new Lugeja();
             eksam = logistik.loe();
         }
-
+        // Kui argumente anti, kasutab Lugeja esimest argumenti failinimena, mida küsimuste lugemisel kasutada
         else {
             Lugeja logistik = new Lugeja(Pakkuja.args[0]);
             eksam = logistik.loe();
         }
     }
 
+    // Meetod küsimuste kuvamiseks, valimiseks, parameetrite esitamiseks ja vastuste saamiseks
     public static boolean paku(Scanner scan, String sisu) {
 
         Pakkuja.vasted = new ArrayList<>();
-
+        // Kui kasutaja soovib rakenduse sulgeda, tagastab meetod väärtuse "true",...
         if (sisu.equals("q")) {
             System.out.println("Peatse jällenägemiseni!");
             return true;
         }
-
+        // ... vastasel korral otsitakse küsimusi, milles sisalduks kasutaja poolt sisestatud sõne
         for (Küsimus i: eksam) {
             if (i.getKüsimus().toLowerCase().contains(sisu.toLowerCase())) {
+                // Sobivad küsimused lisatakse nende jaoks loodud listi
                 Pakkuja.vasted.add(i);
             }
         }
-
+        // Kui küsimuste otsimine tulemusi ei andnud, tagastab meetod väärtuse "false"
         if (vasted.size() == 0) {
             System.out.println("Sellise sisuga küsimust andmestikus ei ole.");
             return false;
         }
+        // Kui leidus sobivaid küsimusi, väljastatakse sobinute arv, üks sobiv küsimus ja edasised võimalused
         else {
             System.out.println("Leidus " + vasted.size() + " vastet.");
             int counter = 0;
@@ -48,7 +55,7 @@ public class Pakkuja {
                     System.out.println((counter + 1) + ". vaste näeb välja selline:");
                 }
                 System.out.println(vasted.get(counter).getKüsimus().replace("&n&", "___"));
-
+                // Kui küsimusel on mitu erinevat vastust, küsitakse kasutajalt soovitud parameetrite väärtusi
                 if (vasted.get(counter).getVäärtused().get(0).size() > 1) {
                     System.out.println("Vastuse saamiseks sisesta semikoolonitega(;) eraldatult kõik muutujad " +
                             "(näiteks kolme muutuja 5, 12 ja 4 korral oleks sisend 5;12;4).");
@@ -85,6 +92,7 @@ public class Pakkuja {
                         counter = vasted.size() - 1;
                     }
                 }
+                // Kui parameetrid annavad vastuse, siis see kuvatakse. Vastuse puudumisel küsitakse parameetreid uuesti
                 else if (vasted.get(counter).getVäärtused().get(0).size() > 1) {
                     String lahend = vasted.get(counter).Kontrolli(tagasiside.split(";"));
                     if (lahend.equals("")) {
@@ -98,7 +106,7 @@ public class Pakkuja {
                 else {
                     System.out.println("Mittesobiv käsk");
                 }
-
+                // Kosmeetiline reavahe
                 System.out.println();
             }
             return false;

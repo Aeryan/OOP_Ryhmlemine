@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// Klass faililugeja testimiseks, pole rakenduse tööks vajalik
 public class LugejaTest {
     public static void main(String[] args) throws Exception{
         Lugeja logistik = new Lugeja();
