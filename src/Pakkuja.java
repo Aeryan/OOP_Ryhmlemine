@@ -57,7 +57,7 @@ public class Pakkuja {
                 System.out.println(vasted.get(counter).getKüsimus().replace("&n&", "___"));
                 // Kui küsimusel on mitu erinevat vastust, küsitakse kasutajalt soovitud parameetrite väärtusi
                 if (vasted.get(counter).getVäärtused().get(0).size() > 1) {
-                    System.out.println("Vastuse saamiseks sisesta semikoolonitega(;) eraldatult kõik muutujad " +
+                    System.out.println("Vastuse saamiseks sisesta semikoolonitega(;) eraldatult kõik muutujad\n" +
                             "(näiteks kolme muutuja 5, 12 ja 4 korral oleks sisend 5;12;4).");
 
                 }
