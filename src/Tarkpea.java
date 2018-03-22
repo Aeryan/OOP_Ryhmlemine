@@ -10,10 +10,10 @@ public class Tarkpea {
         Pakkuja.setArgs(args);
         // Loon objekti scan, mis hakkab lugema kasutaja poolt sisestatud teksti.
         Scanner scan = new Scanner(System.in);
+        System.out.println("Tere! Käesolev programm aitab leida vastuseid kõige piinavametele küsimustele,\n" +
+                "mida kaastudengid on kohanud!");
         // Küsin kasutajalt küsimusi osi seni, kuni ta soovib rakendusest väljuda.
         while (true) {
-            System.out.println("Tere! Käesolev programm aitab leida vastuseid kõige piinavametele küsimustele,\n" +
-                    "mida kaastudengid on kohanud!");
             System.out.print("Sisesta küsimuse osa (väljumiseks \"q\"): ");
             /* Pakkuja kontrollib saadud sisendi väärtust ning kui selleks on väljumiskäsk,
             tagastab Pakkuja väärtuse "true" ning lõpmatu kordus katkeb */

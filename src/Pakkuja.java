@@ -42,12 +42,12 @@ public class Pakkuja {
         }
         // Kui küsimuste otsimine tulemusi ei andnud, tagastab meetod väärtuse "false"
         if (vasted.size() == 0) {
-            System.out.println("Sellise sisuga küsimust andmestikus ei ole.");
+            System.out.println("Sellise sisuga küsimust andmestikus ei ole.\n");
             return false;
         }
         // Kui leidus sobivaid küsimusi, väljastatakse sobinute arv, üks sobiv küsimus ja edasised võimalused
         else {
-            System.out.println("Leidus " + vasted.size() + " vastet.");
+            System.out.println("\nLeidus " + vasted.size() + " vastet.");
             int counter = (int) Math.round(Math.random() * (vasted.size()-1));
             while (true) {
 
@@ -75,6 +75,7 @@ public class Pakkuja {
                 String tagasiside = scan.nextLine().toLowerCase();
 
                 if (tagasiside.equals("u")) {
+                    System.out.println();
                     break;
                 }
                 else if (tagasiside.equals("q")) {
